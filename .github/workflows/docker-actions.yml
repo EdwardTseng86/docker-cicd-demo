@@ -1,0 +1,19 @@
+name: Docker-acyion-demo
+on: [push]
+jobs:
+  Ed-pull-to-dockerhub:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        #Can see [branch-id]
+      - name: build-image
+        run: docker build . --tag brotherhood86/my_nginx:latest
+      - name: loging dockerhub and push
+        run: 
+          docker login -u {{secrets.Docker_ID}} -p {{secrets.Docker_PASSWORD}}
+          docker push brotherhood86/my_nginx:latest
+      - name: run web
+        run: docker run -p 80:80 -d brotherhood86/my_nginx:latest 
+        #-p port maping, -d:run on background
+       
