@@ -1,4 +1,5 @@
 # docker_cicd
+A simple demo for github action + dockerhub update
 ## Dockerfile: 
   Describe to build the docker image from the **Dockerfile**.
 ## .github/workflows/(anyname).yml:
