@@ -9,7 +9,7 @@ A simple demo for github action + dockerhub update
   2. Login dockerhub with `github.secret_token`, which stored the dockerhub ID/password
   3. Push new <font color=red>image</font> to dest.
 
-#### Buildx in github.action
+#### Github market action-docker Setup Buildx
   If we use
   `Run docker buildx build --platform linux/arm,linux/arm64,linux/amd64  -t ***/my_nginx . --push`
   The error would occur because github.action currently not supported for docker driver. :
