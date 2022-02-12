@@ -5,9 +5,9 @@ A simple demo for github action + dockerhub update
 
 ### .github/workflows/(anyname).yml:
   Describe the basic steps to push new image to the docker after build.
-  0. Add code from **Github market action-docker Setup Buildx**
-  1. Login dockerhub with `github.secret_token`, which stored the dockerhub ID/password
-  2. Push new <font color=red>image</font> to dest.
+  1. Add code from **Github market action-docker Setup Buildx**
+  2. Login dockerhub with `github.secret_token`, which stored the dockerhub ID/password
+  3. Push new <font color=red>image</font> to dest.
 
 #### Buildx in github.action
   If we use
