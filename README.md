@@ -6,4 +6,4 @@ A simple demo for github action + dockerhub update
   Describe the basic steps to push new image to the docker after build.
   1. Build the new *image* from the **Dockerfile** 
   2. Login dockerhub with `github.secret_token`, which stored the dockerhub ID/password
-  3. Push new <font color=red>colorimage</font> to dest.
+  3. Push new <font color=red>image</font> to dest.
