@@ -6,13 +6,21 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-        #Can see [branch-id]
-      - name: build-image
-        run: docker build . --tag brotherhood86/my_nginx:latest
-      - name: loging dockerhub and push
+      - name: Loging dockerhub 
         run: docker login -u ${{secrets.Docker_ID}} -p ${{secrets.Docker_PASSWORD}}
-      - run: docker push ${{secrets.Docker_ID}}/my_nginx:latest
-      - name: run web
-        run: docker run -p 80:80 -d brotherhood86/my_nginx:latest 
-        #-p port maping, -d:run on background
+      - name: See the support buildx in github.actions
+        run: echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
+      - name: Build cross OS container with buildx
+        run: docker buildx build --platform linux/arm,linux/arm64,linux/amd64 -t ${{secrets.Docker_ID}}/my_nginx . --push
+        #--push:Push to dockerhub
+
+#---------------------------- Just build general image ----------------------------
+      # - name: build-image
+      #   run: docker build . --tag brotherhood86/my_nginx:latest
+      # - name: Loging dockerhub and push
+      #   run: docker login -u ${{secrets.Docker_ID}} -p ${{secrets.Docker_PASSWORD}}
+      # - run: docker push ${{secrets.Docker_ID}}/my_nginx:latest
+      # - name: run web
+      #   run: docker run -p 80:80 -d brotherhood86/my_nginx:latest 
+      #   #-p port maping, -d:run on background
        

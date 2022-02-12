@@ -2,8 +2,13 @@
 A simple demo for github action + dockerhub update
 ### Dockerfile: 
   Describe to build the docker image from the **Dockerfile**.
+
 ### .github/workflows/(anyname).yml:
   Describe the basic steps to push new image to the docker after build.
-  1. Build the new *image* from the **Dockerfile** 
+  1. Use `docker buildx` for cross OS *image* from the **Dockerfile** 
   2. Login dockerhub with `github.secret_token`, which stored the dockerhub ID/password
   3. Push new <font color=red>image</font> to dest.
+
+#### Buildx in github.action
+  [Github market action-docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx)
+  `echo "Platforms: ${{ steps.buildx.outputs.platforms }}`
