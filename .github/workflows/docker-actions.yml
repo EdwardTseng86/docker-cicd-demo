@@ -12,8 +12,8 @@ jobs:
         run: echo  ${{ steps.buildx.outputs.platforms }}
       - name: Build cross OS container with buildx
         run: >
-        docker buildx build --platform linux/arm,linux/arm64,linux/amd64 
-        -t ${{secrets.Docker_ID}}/my_nginx . --push
+          docker buildx build --platform linux/arm,linux/arm64,linux/amd64 
+          -t ${{secrets.Docker_ID}}/my_nginx . --push
         Comment: --push:Push to dockerhub
 
 #---------------------------- Just build general image ----------------------------
