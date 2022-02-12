@@ -4,12 +4,23 @@ jobs:
   Ed-pull-to-dockerhub:
     runs-on: ubuntu-20.04
     steps:
-      - name: Check out repository code
+    #---see "https://github.com/marketplace/actions/docker-setup-buildx"
+      -
+        name: Checkout
         uses: actions/checkout@v2
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+      #----
       - name: Loging dockerhub 
         run: docker login -u ${{secrets.Docker_ID}} -p ${{secrets.Docker_PASSWORD}}
-      - name: Available platforms
-        run: echo  ${{ steps.buildx.outputs.platforms }}
       - name: Build cross OS container with buildx
         run: >
           docker buildx build --platform linux/arm,linux/arm64,linux/amd64 
