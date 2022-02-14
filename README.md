@@ -1,7 +1,7 @@
 # dockerhub-cicd-demo
-A simple demo for github action + dockerhub update
+A simple demo for GitHub Actions + dockerhub update
 ### Dockerfile: 
-  Describe to build the docker image from the **Dockerfile**.
+  Describe building the docker image from the **Dockerfile**.
 
 ### .github/workflows/(anyname).yml:
   Describe the basic steps to push new image to the docker after build.
@@ -16,7 +16,7 @@ A simple demo for github action + dockerhub update
 >error: multiple platforms feature is currently not supported for docker driver. 
 >Please switch to a different driver (eg. "docker buildx create --use")
 ##### Solve
-Use the Docer official code in  **[Github market action-docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx)** to solve.
+Use the Docker official code in  **[Github market action-docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx)** to solve.
 
 #### More
 [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images)
