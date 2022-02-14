@@ -15,9 +15,10 @@ jobs:
         name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
+#       -
+#         name: Available platforms
+#         run: echo ${{ steps.buildx.outputs.platforms }}
+#         #help to see suported platforms
       #----
       - name: Loging dockerhub 
         run: docker login -u ${{secrets.Docker_ID}} -p ${{secrets.Docker_PASSWORD}}
